@@ -11,30 +11,45 @@ export const MovieForm = ({ addMovie }) => {
       setTitle('');
       setRating('0');
     } else {
-      alert('Enter title and select rating');
+      alert('Fyll i titel och betyg');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='mb-3'>
       <fieldset>
-        <legend>Lägg till en film</legend>
-        <label>
-          Titel:
-          <input type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
-        </label>
-        <label>
-          Betyg:
-          <select value={rating} onChange={(e) => setRating(e.target.value)}>
-            <option value='0'>Välj betyg här...</option>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-          </select>
-        </label>
-        <button type='submit'>Spara film</button>
+        <legend className='mb-2'>Lägg till en film</legend>
+        <div className='mb-3'>
+          <label className='form-label'>
+            Titel:
+            <input
+              type='text'
+              className='form-control'
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className='mb-3'>
+          <label className='form-label'>
+            Betyg:
+            <select
+              className='form-select'
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
+            >
+              <option value='0'>Välj betyg här...</option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+            </select>
+          </label>
+        </div>
+        <button type='submit' className='btn btn-success mt-3'>
+          Spara film
+        </button>
       </fieldset>
     </form>
   );
